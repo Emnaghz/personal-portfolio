@@ -46,7 +46,7 @@ const Achievements = () => {
         {certifications.map((certification, index) => (
           <CertificationCard
             key={`certifications-${index}`}
-            // certification={certification}
+            index={index}
             name={certification.name}
             image={certification.image}
             source_link={certification.source_link}
