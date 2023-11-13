@@ -1,0 +1,59 @@
+import React from "react";
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
+
+import { styles } from "../styles";
+import { github } from "../assets";
+import { SectionWrapper } from "../hoc";
+import { certifications } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
+
+const ProjectCard = ({ index, name, image, source_code_link }) => {
+  return (
+    <Tilt className="xs:w-[340px] w-full">
+      <motion.div
+        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+        className="w-full bg-tertiary p-[1px] rounded-[20px] shadow-card"
+      >
+        <div className="relative w-full h-full">
+          <div
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="cursor-pointer"
+          >
+            <img
+              src={image}
+              alt="project_image"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </div>
+        </div>
+        <div className='mt-5'>
+          <h3 className='text-white font-bold text-[18px] p-5'>{name}</h3>
+        </div>
+      </motion.div>
+    </Tilt>
+  );
+};
+
+const Achievements = () => {
+  return (
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>My certifications</p>
+        <h2 className={`${styles.sectionHeadText}`}>Personal Achievement.</h2>
+      </motion.div>
+
+      <div className="mt-20 flex flex-wrap gap-7">
+        {certifications.map((certification, index) => (
+          <ProjectCard
+            key={`certifications-${index}`}
+            index={index}
+            {...certification}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Achievements, "achievements");
