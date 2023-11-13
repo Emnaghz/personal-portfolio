@@ -7,7 +7,7 @@ import { SectionWrapper } from "../hoc";
 import { certifications } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const CertificationCard = ({ index, name, image, source_link }) => {
+const CertificationCard = ({ index, image, name, source_link }) => {
   return (
     <Tilt className="xs:w-[340px] w-full">
       <motion.div
@@ -46,8 +46,10 @@ const Achievements = () => {
         {certifications.map((certification, index) => (
           <CertificationCard
             key={`certifications-${index}`}
-            index={index}
-            {...certification}
+            // certification={certification}
+            name={certification.name}
+            image={certification.image}
+            source_link={certification.source_link}
           />
         ))}
       </div>
