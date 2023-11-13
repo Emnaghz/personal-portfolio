@@ -40,6 +40,9 @@ import {
     linuxcertif,
     ansiblecertif,
     tcpc,
+    sonarqube,
+    portfolio,
+    gym,
   } from "../assets";
   
   export const navLinks = [
@@ -279,7 +282,7 @@ import {
     {
       name: "Personal Portfolio",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "BUild portfolio website that combines 3D animation using three.js, React for a dynamic interface, and Tailwind for responsive design. Plus, implemented GitHub Actions for automated deployment to GitHub Pages. ",
       tags: [
         {
           name: "react",
@@ -298,72 +301,59 @@ import {
           color: "orange-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: portfolio,
+      source_code_link: "https://github.com/Emnaghz/personal-portfolio",
     },
     {
       name: "SonarQube CI/CD pipeline",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "The pipeline performs SonarQube analysis on a Python project and sets up a quality gate to ensure that the code meets certain quality standards before creating an image and push it on DockerHub.",
       tags: [
         {
-          name: "react",
+          name: "jenkins",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "docker",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "slack",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: sonarqube,
+      source_code_link: "https://github.com/Emnaghz/SonarQube-Jenkins-pipline",
     },
     {
       name: "Gym website",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "A comprehensive gym website that allows users to register, see activities and plans. Implemented admin Interface for managing registrated accounts and the gym website settings.",
       tags: [
         {
-          name: "nextjs",
+          name: "html",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "css",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "javascript",
           color: "pink-text-gradient",
         },
+        {
+          name: "php",
+          color: "yellow",
+        },
+        {
+          name: "MySql",
+          color: "orange-text-gradient",
+        },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: gym,
+      source_code_link: "https://github.com/Emnaghz/GymWebsite",
     },
-    // {
-    //   name: "PROJET SE",
-    //   description:
-    //     "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    //   tags: [
-    //     {
-    //       name: "nextjs",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "supabase",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "css",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   image: tripguide,
-    //   source_code_link: "https://github.com/",
-    // },
   ];
 
 
@@ -371,42 +361,42 @@ import {
     {
       name: "AWS Cloud Practitioner Certificate",
       image: cloudpractitioner,
-      source_code_link: "https://www.credly.com/badges/f40e1302-940a-459f-b0d5-44921bb180ad/linked_in_profile",
+      source_link: "https://www.credly.com/badges/f40e1302-940a-459f-b0d5-44921bb180ad/linked_in_profile",
     },
     {
       name: "AWS Knowledge: Cloud Essentials Certificate",
       image: AWSknowledge,
-      source_code_link: "https://www.credly.com/badges/f5c0dc09-1a79-4f09-a6bd-3340c03ca986/linked_in_profile",
+      source_link: "https://www.credly.com/badges/f5c0dc09-1a79-4f09-a6bd-3340c03ca986/linked_in_profile",
     },
     {
       name: "Python Essentials Certificate",
       image: pythonEssentials,
-      source_code_link: "https://www.credly.com/badges/5ad52596-7293-4d8d-8c4d-dc759d099bc4?source=linked_in_profile",
+      source_link: "https://www.credly.com/badges/5ad52596-7293-4d8d-8c4d-dc759d099bc4?source=linked_in_profile",
     },
     {
       name: "Docker Certificate",
       image: dockercertif,
-      source_code_link: "https://kodekloud.com/certificate-verification/2D08B6E6776A-2D08B0EFAC0E-2D08AB561C42/",
+      source_link: "https://kodekloud.com/certificate-verification/2D08B6E6776A-2D08B0EFAC0E-2D08AB561C42/",
     },
     {
       name: "Ansible Basics Certificate",
       image: ansiblecertif,
-      source_code_link: "https://kodekloud.com/certificate-verification/2D08B6E6776A-2D08B0E15235-2D08AB561C42/",
+      source_link: "https://kodekloud.com/certificate-verification/2D08B6E6776A-2D08B0E15235-2D08AB561C42/",
     },
     {
       name: "JavaScript Algorithms and Data Structures Certificate",
       image: jscertif,
-      source_code_link: "https://www.freecodecamp.org/certification/Emna_Ghzayel/javascript-algorithms-and-data-structures",
+      source_link: "https://www.freecodecamp.org/certification/Emna_Ghzayel/javascript-algorithms-and-data-structures",
     },
     {
       name: "Linux for Developers Certificate",
       image: linuxcertif,
-      source_code_link: "https://www.coursera.org/account/accomplishments/verify/SVL2SGKL4WGT?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course",
+      source_link: "https://www.coursera.org/account/accomplishments/verify/SVL2SGKL4WGT?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course",
     },
     {
       name: "TCPC Certificate",
       image: tcpc,
-      source_code_link: "https://drive.google.com/file/d/1Cs01IKMuH2Zh5Asl1wtzb5VGUmqNjAM4/view",
+      source_link: "https://drive.google.com/file/d/1Cs01IKMuH2Zh5Asl1wtzb5VGUmqNjAM4/view",
     },
   ];
   

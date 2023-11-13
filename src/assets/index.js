@@ -6,6 +6,9 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import sonarqube from "./sonarqube.png";
+import portfolio from "./portfolio.png";
+import gym from "./gym.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -96,4 +99,7 @@ export {
   linuxcertif,
   ansiblecertif,
   tcpc,
+  sonarqube,
+  portfolio,
+  gym
 };

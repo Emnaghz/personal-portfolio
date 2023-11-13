@@ -3,12 +3,11 @@ import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { certifications } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ProjectCard = ({ index, name, image, source_code_link }) => {
+const CertificationCard = ({ index, name, image, source_link }) => {
   return (
     <Tilt className="xs:w-[340px] w-full">
       <motion.div
@@ -17,7 +16,7 @@ const ProjectCard = ({ index, name, image, source_code_link }) => {
       >
         <div className="relative w-full h-full">
           <div
-            onClick={() => window.open(source_code_link, "_blank")}
+            onClick={() => window.open(source_link, "_blank")}
             className="cursor-pointer"
           >
             <img
@@ -45,7 +44,7 @@ const Achievements = () => {
 
       <div className="mt-20 flex flex-wrap gap-7">
         {certifications.map((certification, index) => (
-          <ProjectCard
+          <CertificationCard
             key={`certifications-${index}`}
             index={index}
             {...certification}
