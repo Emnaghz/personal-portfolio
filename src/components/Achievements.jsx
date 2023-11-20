@@ -9,7 +9,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 
 const CertificationCard = ({ index, image, name, source_link }) => {
   return (
-    <Tilt className="xs:w-[340px] w-full">
+    <Tilt className="sm:w-[340px] w-full">
       <motion.div
         variants={fadeIn("right", "spring", index * 0.5, 0.75)}
         className="w-full bg-tertiary p-[1px] rounded-[20px] shadow-card"
@@ -22,7 +22,7 @@ const CertificationCard = ({ index, image, name, source_link }) => {
             <img
               src={image}
               alt="project_image"
-              className="xs:w-[230px] w-full h-full object-cover rounded-2xl"
+              className="xs:w-[230px] h-full object-cover rounded-2xl"
             />
           </div>
         </div>
