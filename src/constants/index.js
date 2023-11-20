@@ -68,7 +68,7 @@ import {
   
   const services = [
     {
-      title: "Web Development",
+      title: "Software Development",
       icon: web,
     },
     {
@@ -169,7 +169,7 @@ import {
       date: " Jul 2022 - Aug 2022",
       points: [
         "Developing and maintaining data visualization generator web application interface using React.js and Typescript and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Collaborating with cross-functional teams including product managers and other developers to create high-quality products.",
         "Implementing responsive design and ensuring cross-browser compatibility.",
         "Participating in code reviews and providing constructive feedback to other developers.",
       ],
@@ -181,9 +181,9 @@ import {
       iconBg: "#E6DEDD",
       date: "Feb 2023 - Jun 2023",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Developed an integrated delivery management module within the Odoo ERP, addressing the essential need for streamlined delivery processes.",
+        "Ensured seamless integration with Odoo's existing architecture, providing a consistent user experience.",
+        "Incorporating ChartJS for clear and intuitive graphical data representation.",
         "Participating in code reviews and providing constructive feedback to other developers.",
       ],
     },

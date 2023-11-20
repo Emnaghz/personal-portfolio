@@ -22,12 +22,12 @@ const CertificationCard = ({ index, image, name, source_link }) => {
             <img
               src={image}
               alt="project_image"
-              className="w-full h-full object-cover rounded-2xl"
+              className="xs:w-[230px] w-full h-full object-cover rounded-2xl"
             />
           </div>
         </div>
         <div className='mt-5'>
-          <h3 className='text-white font-bold text-[18px] p-5'>{name}</h3>
+          <h3 className='text-white font-bold text-[18px] p-3'>{name}</h3>
         </div>
       </motion.div>
     </Tilt>
@@ -42,7 +42,7 @@ const Achievements = () => {
         <h2 className={`${styles.sectionHeadText}`}>Personal Achievement.</h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-20 flex flex-wrap gap-4">
         {certifications.map((certification, index) => (
           <CertificationCard
             key={`certifications-${index}`}
