@@ -47,6 +47,7 @@ import jscertif from "./certif/jscertif.png";
 import linuxcertif from "./certif/linuxcertif.jpeg";
 import ansiblecertif from "./certif/ansiblecertif.png";
 import tcpc from "./certif/tcpc.png";
+import azure from "./certif/azure.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -101,5 +102,6 @@ export {
   tcpc,
   sonarqube,
   portfolio,
-  gym
+  gym,
+  azure
 };

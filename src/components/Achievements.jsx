@@ -17,7 +17,7 @@ const CertificationCard = ({ index, image, name, source_link }) => {
         <div className="relative w-full h-full">
           <div
             onClick={() => window.open(source_link, "_blank")}
-            className="cursor-pointer"
+            className="cursor-pointer pl-[16%] pt-5"
           >
             <img
               src={image}

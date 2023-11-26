@@ -37,6 +37,7 @@ import {
     sonarqube,
     portfolio,
     gym,
+    azure
   } from "../assets";
   
   export const navLinks = [
@@ -331,6 +332,11 @@ import {
       name: "AWS Knowledge: Cloud Essentials Certificate",
       image: AWSknowledge,
       source_link: "https://www.credly.com/badges/f5c0dc09-1a79-4f09-a6bd-3340c03ca986/linked_in_profile",
+    },
+    {
+      name: "Microsoft Certified: Azure Fundamentals",
+      image: azure,
+      source_link: "https://www.credly.com/earner/earned/badge/80f83890-5898-48ef-a1a1-4509c6b0fd42",
     },
     {
       name: "Python Essentials Certificate",
