@@ -270,9 +270,9 @@ import {
       source_code_link: "https://github.com/Emnaghz/personal-portfolio",
     },
     {
-      name: "SonarQube CI/CD pipeline",
+      name: "ChatGPT chatbot CI/CD pipeline",
       description:
-        "The pipeline performs SonarQube analysis on a Python project and sets up a quality gate to ensure that the code meets certain quality standards before creating an image and push it on DockerHub.",
+        "Setting up a Jenkins CI/CD pipeline with SonarQube and Slack integration for a React-based chatbot that leverages the ChatGPT API.",
       tags: [
         {
           name: "jenkins",
@@ -288,7 +288,7 @@ import {
         },
       ],
       image: sonarqube,
-      source_code_link: "https://github.com/Emnaghz/SonarQube-Jenkins-pipline",
+      source_code_link: "https://github.com/Emnaghz/Chatbot-Pipeline",
     },
     {
       name: "Gym website",
