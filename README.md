@@ -26,10 +26,10 @@ This portfolio website project is crafted to provide an engaging overview of my 
 ![](images/img5.png "Figure 5 : Personal Projects")
 
 ### Personal Achievement
-![](images/img5.png "Figure 6 : Certifications")
+![](images/img6.png "Figure 6 : Certifications")
 
 ### Contact Page
-![](images/img5.png "Figure 6 : Contact")
+![](images/img7.png "Figure 6 : Contact")
 
 ## Tools
 
