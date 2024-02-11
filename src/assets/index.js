@@ -9,6 +9,7 @@ import close from "./close.svg";
 import sonarqube from "./sonarqube.png";
 import portfolio from "./portfolio.png";
 import gym from "./gym.png";
+import netflix from "./netflix.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -103,5 +104,6 @@ export {
   sonarqube,
   portfolio,
   gym,
-  azure
+  azure,
+  netflix
 };

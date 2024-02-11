@@ -37,7 +37,8 @@ import {
     sonarqube,
     portfolio,
     gym,
-    azure
+    azure,
+    netflix,
   } from "../assets";
   
   export const navLinks = [
@@ -291,9 +292,38 @@ import {
       source_code_link: "https://github.com/Emnaghz/Chatbot-Pipeline",
     },
     {
+      name: "Netflix Clone",
+      description:
+        "Netflix clone Project crafted using JavaScript, React, HTML, and CSS. Integrated with Google authentication, Redux Toolkit for state management, and TMDB API integration.",
+      tags: [
+        {
+          name: "React",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Redux Toolkit",
+          color: "green-text-gradient",
+        },
+        {
+          name: "JavaScript",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "HTML/CSS",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Firebase",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: netflix,
+      source_code_link: "https://github.com/Emnaghz/Netflix-clone",
+    },
+    {
       name: "Gym website",
       description:
-        "A comprehensive gym website that allows users to register, see activities and plans. Implemented admin Interface for managing registrated accounts and the gym website settings.",
+        "Acadamic project: a comprehensive gym website that allows users to register, see activities and plans. Implemented admin Interface for managing registrated accounts and the gym website settings.",
       tags: [
         {
           name: "html",
