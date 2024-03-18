@@ -9,6 +9,11 @@ Welcome to my Portfolio Website project! This web application is a reflection of
 
 This portfolio website project is crafted to provide an engaging overview of my professional journey, incorporating various impressive details for an informative and visually appealing user experience.
 
+## Run this project on your localhost
+```
+npm run dev
+```
+
 ## Screenshots
 
 ### Welcome Page

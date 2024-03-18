@@ -49,6 +49,7 @@ import linuxcertif from "./certif/linuxcertif.jpeg";
 import ansiblecertif from "./certif/ansiblecertif.png";
 import tcpc from "./certif/tcpc.png";
 import azure from "./certif/azure.png";
+import AzureSecurity from "./certif/AzureSecurity.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -105,5 +106,6 @@ export {
   portfolio,
   gym,
   azure,
-  netflix
+  netflix,
+  AzureSecurity
 };

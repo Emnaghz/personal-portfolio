@@ -39,6 +39,7 @@ import {
     gym,
     azure,
     netflix,
+    AzureSecurity,
   } from "../assets";
   
   export const navLinks = [
@@ -351,22 +352,27 @@ import {
     },
   ];
 
-
+  
   const certifications = [
+    {
+      name: "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+      image: AzureSecurity,
+      source_link: "https://www.credly.com/badges/46c421da-b17c-4b3b-9d66-5462bccf18d6/public_url",
+    },
     {
       name: "AWS Cloud Practitioner Certificate",
       image: cloudpractitioner,
-      source_link: "https://www.credly.com/badges/f40e1302-940a-459f-b0d5-44921bb180ad/linked_in_profile",
+      source_link: "https://www.credly.com/badges/f40e1302-940a-459f-b0d5-44921bb180ad/public_url",
     },
     {
       name: "AWS Knowledge: Cloud Essentials Certificate",
       image: AWSknowledge,
-      source_link: "https://www.credly.com/badges/f5c0dc09-1a79-4f09-a6bd-3340c03ca986/linked_in_profile",
+      source_link: "https://www.credly.com/badges/f5c0dc09-1a79-4f09-a6bd-3340c03ca986/public_url",
     },
     {
       name: "Microsoft Certified: Azure Fundamentals",
       image: azure,
-      source_link: "https://www.credly.com/earner/earned/badge/80f83890-5898-48ef-a1a1-4509c6b0fd42",
+      source_link: "https://www.credly.com/badges/80f83890-5898-48ef-a1a1-4509c6b0fd42/public_url",
     },
     {
       name: "Python Essentials Certificate",
