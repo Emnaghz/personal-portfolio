@@ -57,8 +57,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
-        env:
-          DOCKER_AUTH_CONFIG: ${{ needs.docker-setup.outputs.auth_token }}  
+
 
   api-build-and-push:
     runs-on: ubuntu-latest
