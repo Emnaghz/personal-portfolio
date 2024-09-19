@@ -1,8 +1,8 @@
 name: Build and Push Docker Image On Merge
+
 on:
   push:
     branches: ['main']
-
   workflow_dispatch:
 
 jobs:
@@ -21,116 +21,53 @@ jobs:
           filters: |
             frontend:
               - 'frontend/**'
-            api:  
+            api:
               - 'api/**'
             widget:
               - 'widget/**'
-  
-  docker-setup:
+
+  build-and-push:
     runs-on: ubuntu-latest
-    outputs:
-      auth_token: ${{ steps.docker_login.outputs.auth_token }}
+    needs:
+      - paths-filter
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
       - name: Login to Docker Hub
         id: docker_login
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        # Capture the authentication token
-      - name: Print Docker Login Config
-        run: cat ~/.docker/config.json
-        if: ${{ always() }}
 
-
-  frontend-build-and-push:
-    runs-on: ubuntu-latest
-    needs: 
-      - paths-filter
-      - docker-setup
-    if: ${{ needs.paths-filter.outputs.frontend == 'true' }}  
-    steps:
-      - name: Check out repository code ...
-        uses: actions/checkout@v4
-      
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and push frontend docker image
-        id: docker_build
+      - name: Build and push Docker images
         uses: docker/build-push-action@v6
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
-          platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
         env:
           DOCKER_AUTH_CONFIG: ${{ needs.docker-setup.outputs.auth_token }}
-
-  api-build-and-push:
-    runs-on: ubuntu-latest
-    needs: 
-      - paths-filter
-    if: ${{ needs.paths-filter.outputs.api == 'true' }}
-    steps:
-      - name: Check out repository code ...
-        uses: actions/checkout@v4
-      
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      
-      - name: Login to Docker Hub and export auth token
-        id: login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and push docker image
-        id: docker_build
-        uses: docker/build-push-action@v6
-        with:
-          context: ./
-          file: ./api/Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
-
-  widget-build-and-push:
-    runs-on: ubuntu-latest
-    needs: 
-      - paths-filter
-    if: ${{ needs.paths-filter.outputs.widget == 'true' }}
-    steps:
-      - name: Check out repository code ...
-        uses: actions/checkout@v4
-      
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub and export auth token
-        id: login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and push docker image
-        id: docker_build
-        uses: docker/build-push-action@v6
-        with:
-          context: ./
-          file: ./widget/Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
+    strategy:
+      matrix:
+        context:
+          - ./frontend
+          - ./api
+          - ./widget
+        dockerfile:
+          - ./frontend/Dockerfile
+          - ./api/Dockerfile
+          - ./widget/Dockerfile
+    if: ${{ needs.paths-filter.outputs.frontend == 'true' || needs.paths-filter.outputs.api == 'true' || needs.paths-filter.outputs.widget == 'true' }}
