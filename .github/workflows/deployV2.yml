@@ -47,27 +47,32 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker images
+      - name: Build and push frontend Docker image
+        if: ${{ needs.paths-filter.outputs.frontend == 'true' }}
         uses: docker/build-push-action@v6
         with:
-          push: true
+          context: ./frontend
+          file: ./frontend/Dockerfile
           platforms: linux/amd64,linux/arm64
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
-          context: ${{ matrix.context }}
-          file: ${{ matrix.dockerfile }}
-        env:
-          DOCKER_AUTH_CONFIG: ${{ needs.docker-setup.outputs.auth_token }}
-    strategy:
-      matrix:
-        context:
-          - ./frontend
-          - ./api
-          - ./widget
-        dockerfile:
-          - ./frontend/Dockerfile
-          - ./api/Dockerfile
-          - ./widget/Dockerfile
-    if: ${{ needs.paths-filter.outputs.frontend == 'true' || needs.paths-filter.outputs.api == 'true' || needs.paths-filter.outputs.widget == 'true' }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
+
+      - name: Build and push API Docker image
+        if: ${{ needs.paths-filter.outputs.api == 'true' }}
+        uses: docker/build-push-action@v6
+        with:
+          context: ./api
+          file: ./api/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
+
+      - name: Build and push widget Docker image
+        if: ${{ needs.paths-filter.outputs.widget == 'true' }}
+        uses: docker/build-push-action@v6
+        with:
+          context: ./widget
+          file: ./widget/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
