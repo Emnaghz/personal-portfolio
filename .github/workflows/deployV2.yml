@@ -28,7 +28,7 @@ jobs:
 
   frontend-build-and-push:
     runs-on: ubuntu-latest
-    if: ${{ needs.paths-filter.outputs.frontend == 'true' }}
+    if: ${{ needs['paths-filter'].outputs.frontend == 'true' }}
     steps:
       - name: Check out repository code ...
         uses: actions/checkout@v4

@@ -10,4 +10,3 @@ COPY . .
 # Expose the port that the Nginx server will run on
 EXPOSE 80
 
-#test
