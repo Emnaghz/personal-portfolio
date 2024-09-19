@@ -6,29 +6,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  paths-filter:
-    runs-on: ubuntu-latest
-    outputs:
-      frontend: ${{ steps.filter.outputs.frontend }}
-      api: ${{ steps.filter.outputs.api }}
-      widget: ${{ steps.filter.outputs.widget }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Filter paths
-        id: filter
-        uses: dorny/paths-filter@v3
-        with:
-          filters: |
-            frontend:
-              - 'frontend/**'
-            api:  
-              - 'api/**'
-            widget:
-              - 'widget/**'
+  # paths-filter:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     frontend: ${{ steps.filter.outputs.frontend }}
+  #     api: ${{ steps.filter.outputs.api }}
+  #     widget: ${{ steps.filter.outputs.widget }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Filter paths
+  #       id: filter
+  #       uses: dorny/paths-filter@v3
+  #       with:
+  #         filters: |
+  #           frontend:
+  #             - 'frontend/**'
+  #           api:  
+  #             - 'api/**'
+  #           widget:
+  #             - 'widget/**'
 
   frontend-build-and-push:
     runs-on: ubuntu-latest
-    if: ${{ needs['paths-filter'].outputs.frontend == 'true' }}
+    # if: ${{ needs['paths-filter'].outputs.frontend == 'true' }}
     steps:
       - name: Check out repository code ...
         uses: actions/checkout@v4
@@ -57,7 +57,7 @@ jobs:
 
   api-build-and-push:
     runs-on: ubuntu-latest
-    if: ${{ needs.paths-filter.outputs.api == 'true' }}
+    # if: ${{ needs.paths-filter.outputs.api == 'true' }}
     steps:
       - name: Check out repository code ...
         uses: actions/checkout@v4
@@ -85,7 +85,7 @@ jobs:
 
   widget-build-and-push:
     runs-on: ubuntu-latest
-    if: ${{ needs.paths-filter.outputs.widget == 'true' }}
+    # if: ${{ needs.paths-filter.outputs.widget == 'true' }}
     steps:
       - name: Check out repository code ...
         uses: actions/checkout@v4
