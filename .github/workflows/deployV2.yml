@@ -29,7 +29,7 @@ jobs:
   docker-setup:
     runs-on: ubuntu-latest
     outputs:
-      auth_token: ${{ steps.login.outputs.auth_token }}
+      auth_token: ${{ steps.login.outputs.token }}
     steps:
       - name: Login to Docker Hub and export auth token
         id: login
@@ -63,53 +63,52 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-frontend:latest
         env:
-          # Reuse Docker auth token
-          DOCKER_AUTH_CONFIG: ${{ needs.docker-setup.outputs.auth_token }}
+          DOCKER_AUTH_CONFIG: ${{ needs.docker-setup.outputs.auth_token }}  
 
-  api-build-and-push:
-    runs-on: ubuntu-latest
-    # if: ${{ needs.paths-filter.outputs.api == 'true' }}
-    needs: docker-setup
-    steps:
-      - name: Check out repository code ...
-        uses: actions/checkout@v4
+  # api-build-and-push:
+  #   runs-on: ubuntu-latest
+  #   # if: ${{ needs.paths-filter.outputs.api == 'true' }}
+  #   needs: docker-setup
+  #   steps:
+  #     - name: Check out repository code ...
+  #       uses: actions/checkout@v4
       
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+  #     - name: Set up Docker Buildx
+  #       uses: docker/setup-buildx-action@v3
 
-      - name: Build and push docker image
-        id: docker_build
-        uses: docker/build-push-action@v6
-        with:
-          context: ./
-          file: ./api/Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
+  #     - name: Build and push docker image
+  #       id: docker_build
+  #       uses: docker/build-push-action@v6
+  #       with:
+  #         context: ./
+  #         file: ./api/Dockerfile
+  #         platforms: linux/amd64,linux/arm64
+  #         push: true
+  #         tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-api:latest
 
-  widget-build-and-push:
-    runs-on: ubuntu-latest
-    # if: ${{ needs.paths-filter.outputs.widget == 'true' }}
-    needs: docker-setup
-    steps:
-      - name: Check out repository code ...
-        uses: actions/checkout@v4
+  # widget-build-and-push:
+  #   runs-on: ubuntu-latest
+  #   # if: ${{ needs.paths-filter.outputs.widget == 'true' }}
+  #   needs: docker-setup
+  #   steps:
+  #     - name: Check out repository code ...
+  #       uses: actions/checkout@v4
       
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+  #     - name: Set up Docker Buildx
+  #       uses: docker/setup-buildx-action@v3
 
-      - name: Build and push docker image
-        id: docker_build
-        uses: docker/build-push-action@v6
-        with:
-          context: ./
-          file: ./widget/Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
+  #     - name: Build and push docker image
+  #       id: docker_build
+  #       uses: docker/build-push-action@v6
+  #       with:
+  #         context: ./
+  #         file: ./widget/Dockerfile
+  #         platforms: linux/amd64,linux/arm64
+  #         push: true
+  #         tags: ${{ secrets.DOCKERHUB_USERNAME }}/hexabot-widget:latest
