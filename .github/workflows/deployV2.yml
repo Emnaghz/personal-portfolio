@@ -38,8 +38,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         # Capture the authentication token
-        env:
-          DOCKER_AUTH_CONFIG: ${{ steps.docker_login.outputs.auth_token }}
+      - name: Print Docker Login Config
+        run: cat ~/.docker/config.json
+        if: ${{ always() }}
+
 
   frontend-build-and-push:
     runs-on: ubuntu-latest
